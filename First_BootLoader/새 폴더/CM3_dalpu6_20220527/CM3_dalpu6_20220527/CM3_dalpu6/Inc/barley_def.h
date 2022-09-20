@@ -1,0 +1,65 @@
+/*
+ * barley_def.h
+ *
+ *  Created on: 2017. 11. 17.
+ *      Author: hdkim
+ */
+
+#ifndef BARLEY_DEF_H_
+#define BARLEY_DEF_H_
+
+#include <stddef.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+typedef enum {
+    EVENT_NONE=0,
+    EVENT_STANDBY,
+    EVENT_ENROL_START,
+    EVENT_ENROL_SUCCESS,
+    EVENT_ENROL_FAIL,
+    EVENT_ENROL_COMPLETE,
+    EVENT_ENROL_FULL,
+    EVENT_ENROL_FIRST,
+    EVENT_VERIFY_START,
+    EVENT_VERIFY_SUCCESS,
+    EVENT_VERIFY_FAIL,
+    EVENT_VERIFY_FAIL_TOO_MANY_ATTEMPTS,
+    EVENT_USER_CANCEL,
+
+    EVENT_SENSOR_CAPTURE_COMPLETE,
+    EVENT_SENSOR_FINGERUP,
+    EVENT_SENSOR_TIME_OUT,
+
+    EVENT_TPL_RESET_COMPLETE,
+
+    EVENT_ETC_SHORTTOUCH,
+    EVENT_ETC_LONGTOUCH_SECTION_1,
+    EVENT_ETC_LONGTOUCH_SECTION_2,
+    EVENT_ETC_5VIN,
+    EVENT_ETC_POWER_OFF,
+    EVENT_TIME_OUT,
+    // ERROR
+    EVENT_UNKNOWN_ERROR,
+} CSFP_Event;
+
+typedef enum {
+    MODE_STANDBY = 0,
+    MODE_ENROL,
+    MODE_VERIFY,
+    MODE_RESET,
+    MODE_WAIT_FP_UP,
+    MODE_CAPTURE_IMG,
+    MODE_NORMAL,
+    MODE_PWR_ON_STATE,
+    MODE_5VIN,
+    MODE_POWER_OFF,
+    MODE_ERROR
+} BARLEY_Mode;
+
+#define MAX_OF_ATTEMPTS         6
+
+
+
+#endif /* BARLEY_DEF_H_ */

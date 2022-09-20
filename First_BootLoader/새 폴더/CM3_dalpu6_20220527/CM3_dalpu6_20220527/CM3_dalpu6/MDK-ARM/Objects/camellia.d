@@ -1,0 +1,12 @@
+.\objects\camellia.o: ..\src\mbedTLS\library\camellia.c
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\camellia.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\camellia.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/camellia.h
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\camellia.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\camellia.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/platform_util.h
+.\objects\camellia.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\camellia.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

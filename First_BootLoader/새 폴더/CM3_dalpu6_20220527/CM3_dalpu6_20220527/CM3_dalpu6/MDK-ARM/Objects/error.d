@@ -1,0 +1,12 @@
+.\objects\error.o: ..\src\mbedTLS\library\error.c
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\error.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\error.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/platform.h
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/platform_time.h
+.\objects\error.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\error.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\error.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\error.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
