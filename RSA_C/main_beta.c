@@ -1,3 +1,8 @@
+
+/*
+    This version is for Windows Visual Studio.
+*/
+
 // #define _CRT_SECURE_NO_WARNINGS
 // #include <openssl/applink.c>
 
@@ -157,18 +162,28 @@ int main(int argc, char *argv[])
     // FILE* pubfp = fopen("./input/public_key_1.pem", "r");
     // RSA* rsa_pub = PEM_read_RSA_PUBKEY(pubfp, NULL, NULL, NULL);
     // Decryption using public key
-    /*num = RSA_public_decrypt(num, cipher_text, plain_text, rsa_pub, RSA_NO_PADDING);
-    printf("\nDecryption Result : \n");
-    for (int i = 0; i < 256; i++)
-    {
-        printf("%02X ", plain_text[i]);
-    }
-    printf("\n");*/
+    // num = RSA_public_decrypt(num, cipher_text, plain_text, rsa_pub, RSA_NO_PADDING);
+    // printf("\nDecryption Result : \n");
+    // for (int i = 0; i < 256; i++)
+    // {
+    //     printf("%02X ", plain_text[i]);
+    // }
 
-    /*
-        make Final Image (sig + size + ver + pubkey + bl2)
-        => In Python
-    */
+    FILE *final_fp = fopen("./output/final_image.bin", "wb");
+    if (final_fp == NULL)
+    {
+        printf("\n[ERR] faile to make final_image.bin\n");
+        return -1;
+    }
+
+    // string type argv[4] (char *) is version number
+    char ver_num[4] = {0x01, 0x00, 0x01, 0x00};
+    fwrite(cipher_text, 1, 256, final_fp);
+    fwrite(&bl2_size, 1, 4, final_fp);
+    fwrite(ver_num, 1, 4, final_fp);
+    fwrite(hash_input, 1, total_size, final_fp);
+
+    printf("\n[DEBUG] Make Final Image Success\n");
 
     printf("\n... Program END ...\n\n");
     return 0;
