@@ -55,7 +55,6 @@ class MyApp(QDialog):
         print(ver)
         sig = encryption(MyApp.data,key_gen(MyApp.n_1,MyApp.e_1,MyApp.d_1),MyApp.n_2,MyApp.e_2,ver,1)
         return sig
-        MyApp.get_key.n_1
         
     def second_window(self,data):
         window_2 = second(data)
