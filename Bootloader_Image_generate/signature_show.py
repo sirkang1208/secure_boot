@@ -9,6 +9,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 
+import subprocess
+
 class MyApp(QDialog):
     n_1 = 0
     e_1 = 0
@@ -26,6 +28,10 @@ class MyApp(QDialog):
             self.pathLabel.setText(fname[0])
             print('filepath : ', fname[0])
             print('filesort : ', fname[1])
+            
+            # filename_BL2 = fname[0]
+            # fname[0] == ./BL2.bin 이어야 함
+            
             with open(fname[0], "rb") as f:
                 MyApp.data = f.read()
         else:
@@ -41,6 +47,8 @@ class MyApp(QDialog):
             print('filepath : ', fname[0])
             print('filesort : ', fname[1])
             
+            
+            
             f_key = open(fname[0], "r")
             key = RSA.importKey(f_key.read())
             
@@ -48,13 +56,20 @@ class MyApp(QDialog):
                 MyApp.n_1 = key.n
                 MyApp.e_1 = key.e
                 MyApp.d_1 = key.d
+                # filename_private_key_1 = fname[0]
+                # fname[0] = './private_key_1.pem' 이어야 함
             else :
                 MyApp.n_2 = key.n
                 MyApp.e_2 = key.e 
+                # filename_public_key_2 = fname[0]
+                # fname[0] = './public_key_2.pem' 이어야 함
         else:
             QMessageBox.about(self, 'warning', '파일을 선택하지 않았습니다')
     def encrypt(self,ver):
         print(ver)
+        # command = "NeoRSA.exe "
+        # command = command + filename_BL2 + filename_private_key_1 + filename_public_key_2
+        # subprocess.run(command, shell=True)
         sig = encryption(MyApp.data,key_gen(MyApp.n_1,MyApp.e_1,MyApp.d_1),MyApp.n_2,MyApp.e_2,ver)
         return sig
         

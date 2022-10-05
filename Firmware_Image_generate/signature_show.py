@@ -27,6 +27,9 @@ class MyApp(QDialog):
             self.pathLabel.setText(fname[0])
             print('filepath : ', fname[0])
             print('filesort : ', fname[1])
+            
+            # MyApp.data = fname[0]
+            
             with open(fname[0], "rb") as f:
                 MyApp.data = f.read()
         else:
