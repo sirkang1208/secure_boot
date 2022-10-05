@@ -64,7 +64,7 @@ class Main(QDialog):
 
     def init_ui(self):        
         
-        self.setWindowTitle("BootLoader image generatorpy")
+        self.setWindowTitle("BootLoader image generator")
         layout = QVBoxLayout()
         
         root_path = "C:/"
@@ -109,7 +109,7 @@ class Main(QDialog):
     
     def buttonclicked(self):
         sig = signature_show.MyApp.encrypt(signature_show.MyApp,Main.x)
-        signature_show.MyApp.second_window(signature_show.MyApp,sig)
+        #signature_show.MyApp.second_window(signature_show.MyApp)
     
     def showDialog(self):
         text, ok = QInputDialog.getText(self, 'Input Dialog', 'Enter Version:')

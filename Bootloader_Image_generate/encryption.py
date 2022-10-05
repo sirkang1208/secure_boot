@@ -21,9 +21,20 @@ def encryption(bootloader, key, n_2 = 0, e_2 = 0, version = 0):
     hash_value = hash_object.digest()
     f_DEBUG.write(hash_value)
     
+    bytes_array = bytearray(190)
+    for i in range(len(bytes_array)):
+        if i < len(hash_value):
+            bytes_array[i] = hash_value[i]
+        else :
+            bytes_array[i] = 0x00
+    
+    with open("hash_padding.bin","wb") as f:
+        f.write(bytes_array)
+    f.close()
+    
     # encrypt hash value with private key
     encryptor = PKCS1_OAEP.new(key)
-    signature = encryptor.encrypt(hash_value)
+    signature = encryptor.encrypt(bytes_array)
     f_DEBUG2.write(signature)
  
     pubkey_n = n_2.to_bytes(256, byteorder = "little")
@@ -61,8 +72,10 @@ def test_sim(key):
     
     decryptor = PKCS1_OAEP.new(key)
     hash_from_sig = decryptor.decrypt(signature)
+    print(hash_from_sig)
     hash_object = SHA256.new(pubkey_n + pubkey_e + bootloader)
     hash_calculated = hash_object.digest()
+    print(hash_calculated)
 
     if (hash_from_sig == hash_calculated):
         print(" ... 검증 통과 ... ")

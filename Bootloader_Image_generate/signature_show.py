@@ -2,6 +2,7 @@ from cgitb import text
 from cmath import nan
 from pickle import NONE
 import sys
+import subprocess
 from neowine_sig import *
 from encryption import *
 from PyQt5.QtWidgets import *
@@ -9,15 +10,12 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import uic
 
-import subprocess
-
 class MyApp(QDialog):
-    n_1 = 0
-    e_1 = 0
-    d_1 = 0
-    n_2 = 0
-    e_2 = 0
-    data = 0
+    str1 = " "
+    str2 = " "
+    str3 = " "
+    
+
     
     def dialog_open(self,input):
         if input:
@@ -28,12 +26,7 @@ class MyApp(QDialog):
             self.pathLabel.setText(fname[0])
             print('filepath : ', fname[0])
             print('filesort : ', fname[1])
-            
-            # filename_BL2 = fname[0]
-            # fname[0] == ./BL2.bin 이어야 함
-            
-            with open(fname[0], "rb") as f:
-                MyApp.data = f.read()
+            MyApp.str1 = fname[0].split('/');
         else:
             QMessageBox.about(self, 'warning', '파일을 선택하지 않았습니다')
     
@@ -47,34 +40,25 @@ class MyApp(QDialog):
             print('filepath : ', fname[0])
             print('filesort : ', fname[1])
             
-            
-            
             f_key = open(fname[0], "r")
             key = RSA.importKey(f_key.read())
             
             if key.has_private():
-                MyApp.n_1 = key.n
-                MyApp.e_1 = key.e
-                MyApp.d_1 = key.d
-                # filename_private_key_1 = fname[0]
-                # fname[0] = './private_key_1.pem' 이어야 함
+                MyApp.str2 = fname[0].split('/');
             else :
-                MyApp.n_2 = key.n
-                MyApp.e_2 = key.e 
-                # filename_public_key_2 = fname[0]
-                # fname[0] = './public_key_2.pem' 이어야 함
+                MyApp.str3 = fname[0].split('/');
         else:
             QMessageBox.about(self, 'warning', '파일을 선택하지 않았습니다')
+            
     def encrypt(self,ver):
         print(ver)
-        # command = "NeoRSA.exe "
-        # command = command + filename_BL2 + filename_private_key_1 + filename_public_key_2
-        # subprocess.run(command, shell=True)
-        sig = encryption(MyApp.data,key_gen(MyApp.n_1,MyApp.e_1,MyApp.d_1),MyApp.n_2,MyApp.e_2,ver)
-        return sig
+        command = "NeoRSA.exe "
+        command = command + "./" + MyApp.str1[-1] +" ./" +  MyApp.str2[-1] +" ./" +  MyApp.str3[-1]
+        print(command)
+        subprocess.run(command, shell=True)
         
-    def second_window(self,data):
-        window_2 = second(data)
+    def second_window(self):
+        window_2 = second()
         window_2.exec_()
 
     def __init__(self):
@@ -96,7 +80,7 @@ class MyApp(QDialog):
         self.show()
 
 class second(QDialog):
-    def __init__(self,data):
+    def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
         self.textEdit = QTextEdit(self)
@@ -104,14 +88,16 @@ class second(QDialog):
         self.setLayout(layout)
         self.setWindowTitle('data_shown')
         self.setWindowIcon(QIcon('drone.jpg'))
-        self.get_data(data)
+        self.get_data()
         self.resize(600,700)
         self._initUi_()
 
     def _initUi_(self):
         self.show()
 
-    def get_data(self,data):
+    def get_data(self):
+        with open("signature.bin","rb") as f:
+            data = f.read()
         self.textEdit.setText(str(data))
 
 if __name__ == '__main__':
