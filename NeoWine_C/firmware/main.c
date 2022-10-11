@@ -20,12 +20,13 @@
     argv[0] == exe directory path
     argv[1] == "./firmware.bin"
     argv[2] == "./private_key_2.pem"
+    argv[3] == version number
 */
 int main(int argc, char* argv[])
 {
-    if (argc != 3)
+    if (argc != 4)
     {
-        printf("\nfirmware.exe <./Bootloader.bin> <./private.pem>\n");
+        printf("\nfirmware.exe <./firmware.bin> <./private.pem> <version>\n");
         return -1;
     }
 
@@ -41,14 +42,22 @@ int main(int argc, char* argv[])
     fseek(fp_firmware, 0, SEEK_END);
     int firmware_size = ftell(fp_firmware);
     fseek(fp_firmware, 0, SEEK_SET);
-
-    printf("\n[DEBUG] firmware_size = %d\n", firmware_size);
-
+    
     // memory allocation
-    // firmware : byte array which saves image of Firmware
-    unsigned char* firmware = (char*)malloc(sizeof(char) * firmware_size);
+    // firmware : 4bytes for ver + firmware_size bytes for firmware image
+    int total_size = 4 + firmware_size;
+    char* hash_input = (char*)calloc(total_size, sizeof(char));
 
-    fread(firmware, 1, firmware_size, fp_firmware);
+    fread(hash_input +4, 1, firmware_size, fp_firmware);
+
+    int ver_int = atoi(argv[3]);
+    FILE* fp_ver = fopen("ver.bin", "wb");
+    fwrite(&ver_int, 1, 4, fp_ver);
+    fclose(fp_ver);
+
+    FILE* fp_ver2 = fopen("ver.bin", "rb");
+    fread(hash_input, 1, 4, fp_ver2);
+    fclose(fp_ver2);
 
     // SHA256(openssl)
     // @ input : firmware
@@ -56,7 +65,7 @@ int main(int argc, char* argv[])
     unsigned char hash_value[SHA256_DIGEST_LENGTH] = {
         0,
     };
-    SHA256(firmware, firmware_size, hash_value);
+    SHA256(hash_input, total_size, hash_value);
 
     // converting endian process
     unsigned char temp = 0x00;
@@ -138,15 +147,13 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    char ver_num[4] = { 0x01, 0x00, 0x01, 0x00 };
     fwrite(cipher_text, 1, 256, final_fp);
     fwrite(&firmware_size, 1, 4, final_fp);
-    fwrite(ver_num, 1, 4, final_fp);
-    fwrite(firmware, 1, firmware_size, final_fp);
+    fwrite(hash_input, 1, total_size, final_fp);
 
     printf("\n[DEBUG] Make Final Firmware Image Success\n");
 
-    free(firmware);
+    free(hash_input);
 
     fclose(fp_firmware);
     fclose(fp_priv2);
