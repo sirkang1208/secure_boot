@@ -44,19 +44,29 @@ int main(int argc, char* argv[])
     fseek(fp_firmware, 0, SEEK_SET);
     
     // memory allocation
-    // firmware : 4bytes for ver + firmware_size bytes for firmware image
-    int total_size = 4 + firmware_size;
+    // firmware : 4(size) + 4(ver) + others(firmware)
+    int total_size = 4 + 4 + firmware_size;
     char* hash_input = (char*)calloc(total_size, sizeof(char));
 
-    fread(hash_input +4, 1, firmware_size, fp_firmware);
+    fread(hash_input + 4 + 4, 1, firmware_size, fp_firmware);
 
+    // hash_input[0:3] = firmware_size
+    FILE* fp_size = fopen("./temp_firm_size.bin", "wb");
+    fwrite(&firmware_size, 1, 4, fp_size);
+    fclose(fp_size);
+
+    FILE* fp_size2 = fopen("./temp_firm_size.bin", "rb");
+    fread(hash_input, 1, 4, fp_size);
+    fclose(fp_size2);
+
+    // hash_input[4:7] = version
     int ver_int = atoi(argv[3]);
-    FILE* fp_ver = fopen("ver.bin", "wb");
+    FILE* fp_ver = fopen("./temp_firm_ver.bin", "wb");
     fwrite(&ver_int, 1, 4, fp_ver);
     fclose(fp_ver);
 
-    FILE* fp_ver2 = fopen("ver.bin", "rb");
-    fread(hash_input, 1, 4, fp_ver2);
+    FILE* fp_ver2 = fopen("./temp_firm_ver.bin", "rb");
+    fread(hash_input + 4, 1, 4, fp_ver2);
     fclose(fp_ver2);
 
     // SHA256(openssl)
@@ -129,18 +139,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    // Write signature to file
-    FILE* fp_sig = fopen("signature.bin", "wb");
-    if (fp_sig == NULL)
-    {
-        printf("[ERR] failed to open Signature File\n");
-        return -1;
-    }
-    fwrite(cipher_text, 1, 256, fp_sig);
-
-    printf("\n[DEBUG] Signing Process Success\n");
-
-    FILE* final_fp = fopen("final_firmware.bin", "wb");
+    FILE* final_fp = fopen("Firm_final_image.bin", "wb");
     if (final_fp == NULL)
     {
         printf("\n[ERR] faile to make final_firmware.bin\n");
@@ -148,7 +147,6 @@ int main(int argc, char* argv[])
     }
 
     fwrite(cipher_text, 1, 256, final_fp);
-    fwrite(&firmware_size, 1, 4, final_fp);
     fwrite(hash_input, 1, total_size, final_fp);
 
     printf("\n[DEBUG] Make Final Firmware Image Success\n");
@@ -157,7 +155,6 @@ int main(int argc, char* argv[])
 
     fclose(fp_firmware);
     fclose(fp_priv2);
-    fclose(fp_sig);
     fclose(final_fp);
 
     printf("\n... Program END ...\n");
