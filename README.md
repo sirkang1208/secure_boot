@@ -1,2 +1,2 @@
 # secure_boot
-MESL Project
+MESL - NEOWINE Project
