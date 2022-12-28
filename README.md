@@ -2,17 +2,47 @@
 
 ## About this project
 ### Description
-- Blank
+- Secure boot for bare metal embedded device
+- Bootloader and Firmware Image generator tool
 
-### Blank
-- Blank
+### development environment
+- Hardware
+    - digilent genesys 2 FPGA board with ARM cortex M3 and PKCC
+- Software
+    - ARM Keil MDK (uVision 5 IDE)
+- for image gen tool
+    - Visual Studio (C language)
+    - Python
+
+### Secure boot process
+![secure-boot](https://user-images.githubusercontent.com/101001675/209815189-b33aa42e-d056-462a-95ec-b2b465a32931.png)
+
+* chip vendor : Companies that made chips and boards
+
+
+* Application vendor : Companies that use boards to make software
+### Image generation process
+- 2nd bootloader image generation
+![image](https://user-images.githubusercontent.com/101001675/209815703-01fa3073-05b9-499f-a5e7-12e277f8d1c7.png)
+
+- firmware image generation
+![image](https://user-images.githubusercontent.com/101001675/209815798-21369b26-36ac-4424-ba6c-b9237db351c4.png)
+
 
 ## Directory Structure
-- /Blank
-    - Blank
+- /Keys
+    - *_key_1.pem : RSA key of chip vendor
+    - *_key_2.pem : RSA key of application vendor
+- /sources
+    - 1st bootloader (※ must be written to an unmodifiable ROM)
+    - 2nd bootloader
+    - firmware
+    - scatter file
+- /img_gen_tool
+    - Final image of 1st bootloader, 2nd bootloader and firmware generation tool 
+    - Frontend : Python (PyQt5)
+    - Backend : C (openssl)
     
-## cf.
-
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
