@@ -1,0 +1,468 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+#include <stdint.h>
+typedef enum {
+ECDSA_SIGN_GEN = 0,
+ECDSA_SIGN_VERI,
+ECDSA_DOMAIN_VALI,
+ECDH_GEN_PK,
+ECDH_GEN_FK,
+RSA_GEN_PK,
+RSA_ENC,
+RSA_DEC
+} OP_TYPE;
+typedef enum {
+ECDSA_p = 0,
+ECDSA_n,
+ECDSA_Gx,
+ECDSA_Gy,
+ECDSA_a,
+ECDSA_b,
+ECDSA_dA,
+ECDSA_KRNG,
+ECDSA_Qx,
+ECDSA_Qy,
+ECDSA_r,
+ECDSA_s,
+ECDSA_h,
+ECDSA_RESULT
+}PARA_TYPE_ECDSA;
+#if 0
+   t_ecc_point *s;    /**< secret key */
+   t_ecc_point *pk;    /**< public key */
+
+   uint8_t *d_other;    /**< private key */
+   t_ecc_point *s_other;    /**< secret key */
+   t_ecc_point *pk_other;    /**< public key */
+#endif
+typedef enum {
+ECDH_p,
+ECDH_n,
+ECDH_Gx,
+ECDH_Gy,
+ECDH_a,
+ECDH_b,
+ECDH_d,
+ECDH_d_PUF,
+ECDH_d_Other,
+ECDH_SecretX,
+ECDH_SecretY,
+ECDH_PkX,
+ECDH_PkY,
+ECDH_OtherSecretX,
+ECDH_OtherSecretY,
+ECDH_OtherPkX,
+ECDH_OtherPkY
+}PARA_TYPE_ECDH;
+
+typedef enum {
+EC_ELGAMEL_p = 0,
+EC_ELGAMEL_n,
+EC_ELGAMEL_Gx,
+EC_ELGAMEL_Gy,
+EC_ELGAMEL_a,
+EC_ELGAMEL_b,
+EC_ELGAMEL_x,
+EC_ELGAMEL_k,
+EC_ELGAMEL_PmSrcX,
+EC_ELGAMEL_PmSrcY,
+EC_ELGAMEL_PmX,
+EC_ELGAMEL_PmY,
+EC_ELGAMEL_CX,
+EC_ELGAMEL_CY,
+EC_ELGAMEL_C2X,
+EC_ELGAMEL_C2Y,
+EC_ELGAMEL_DX,
+EC_ELGAMEL_DY,
+EC_ELGAMEL_CprimeX,
+EC_ELGAMEL_CprimeY,
+EC_ELGAMEL_decPmX,
+EC_ELGAMEL_decPmY,
+EC_ELGAMEL_YX,
+EC_ELGAMEL_YY,
+EC_ELGAMEL_XPRIME
+
+}PARA_TYPE_EC_ELGAMELL;
+
+typedef enum {
+RSA_n,
+RSA_d,
+RSA_expo,
+RSA_msg,
+RSA_CT_PT
+}PARA_TYPE_RSA;
+#define PRINT_MESSAGE printf
+#define SPI1_WRITE_DATA 0x61
+#define SPI1_READ_DATA  0x71
+#define SPI1_WRITE_DATA_TEST 0x62
+#define SPI1_READ_DATA_TEST  0x72
+
+#define	Set_ECC_q	0x01
+#define	Set_ECC_a	0x02
+#define	Set_ECC_b	0x03
+#define	Set_ECC_xG	0x04
+#define	Set_ECC_yG	0x05
+#define	Set_ECC_n	0x06
+#define	Set_Curve	0x07
+#define   SLEEP           0x08
+#define DEEP_SLEEP 0x09
+#define	Set_ECDH_PrivateKey	0x11
+#define	Set_ECDH_PrivateKey_PUF	0x12
+#define	Create_ECHD_PublicKey	0x13
+#define	Set_ECDH_PublicKey_X 	0x14
+#define	Set_ECDH_PublicKey_Y 	0x15
+#define	Get_ECDH_PublicKey_X 	0x16
+#define	Get_ECDH_PublicKey_Y 	0x17
+#define	Create_ECHD_KEY 	0x18
+#define	Get_ECDH_KEY_X 	0x19
+#define	SET_EEPROM_BY_KEY 	0x1a
+#define	Get_ECDH_KEY_Y 	0x20
+#define	Set_ECDH_MY_PublicKey_X 	0x21
+#define	Set_ECDH_MY_PublicKey_Y 	0x22
+#define	Get_ECDH_Result 	0x23
+
+#define Set_PrivateKEY1 0x23
+#define Set_PrivateKEY2 0x24
+#define Set_PrivateKEY3 0x25
+#define Set_PrivateKEY4 0x26
+
+#define Set_PrivateKEY_K_1 0x27
+#define Set_PrivateKEY_K_2 0x28
+#define Set_PrivateKEY_K_3 0x29
+#define Set_PrivateKEY_K_4 0x2A
+
+
+
+#define Set_ECDSA_PrivateKey 0x41
+#define Set_ECDSA_PrivateKey_PUF  0x42
+#define Set_ECDSA_K_RND 0x43
+#define Set_ECDSA_K_RND_PUF 0x44
+#define Set_ECDSA_Public_Key_Xq 0x45
+#define Set_ECDSA_Public_Key_Yq 0x46
+#define Create_ECDSA_Public_Key 0x47
+#define Get_ECDSA_Public_Key_Xq 0x48
+#define Get_ECDSA_Public_Key_Yq 0x49
+#define Set_ECDSA_r 0x50
+#define Set_ECDSA_s 0x51
+#define Get_ECDSA_r 0x52
+#define Get_ECDSA_s 0x53
+#define Create_ECDSA_Sign 0x54
+#define Set_ECDSA_h 0x55
+#define Get_ECDSA_h 0x56
+#define Get_ECDSA_Result 0x57
+#define Do_ECDSA_Verify 0x58
+
+#define   EHCO                          0x71		
+#define	Set_RSA_Prime_q	0x81
+#define	Set_RSA_Prime_p	0x82
+#define	Set_RSA_PublicExpo	0x83
+#define	Set_RSA_PrivateKey_d	0x84
+#define	Set_RSA_PlainText_M	0x85
+#define	Set_RSA_CipherText_C	0x86
+#define	Get_RSA_CipherText_C	0x87
+#define	Set_RSA_Modulus_n	0x88
+#define	Get_RSA_PlainText_M	0x89
+#define	Get_RSA_PublicExpo	0x90
+#define	Get_RSA_PrivateKed_d	0x91
+#define	Get_RSA_Modulus_n	0x92
+#define	Create_RSA_Key	0x93
+
+#define	Encrypt_RSA		0x94
+#define	Decrypt_RSA	0x95
+#define   SIZE_EC_ELGAMEL_256   0x96
+#define   SIZE_ECDH_256   0xA0
+#define   SIZE_ECDH_521   0xA1
+#define   SIZE_ECDSA_256  0xA2
+#define   SIZE_ECDSA_521  0xA3
+#define   SIZE_RSA_2048   0xA4
+#define   SAVE_RSA_PARA 0xA5
+#define   SAVE_KEY 0xA6
+#define   MAKE_RAND 0xA7
+#define 	Get_RAND 0xA8
+#define SET_EC_ELGAMEL_p 0xB0
+#define SET_EC_ELGAMEL_n 0xB1
+#define SET_EC_ELGAMEL_Gx 0xB2
+#define SET_EC_ELGAMEL_Gy 0xB3
+#define SET_EC_ELGAMEL_a 0xB4
+#define SET_EC_ELGAMEL_b 0xB5
+#define SET_EC_ELGAMEL_x 0xB6
+#define SET_EC_ELGAMEL_k 0xB7
+#define SET_EC_ELGAMEL_SmX 0xB8
+#define SET_EC_ELGAMEL_SmY 0xB9
+#define SET_EC_ELGAMEL_PmX 0xBA
+#define SET_EC_ELGAMEL_PmY 0xBB
+#define SET_EC_ELGAMEL_CX   0xBC
+#define SET_EC_ELGAMEL_CY   0xBD
+#define SET_EC_ELGAMEL_C2X 0xBE
+#define SET_EC_ELGAMEL_C2Y 0xBF
+#define SET_EC_ELGAMEL_DX 0xC0
+#define SET_EC_ELGAMEL_DY 0xC1
+#define SET_EC_ELGAMEL_CprimeX 0xC2
+#define SET_EC_ELGAMEL_CprimeY 0xC3
+#define SET_EC_ELGAMEL_YX 0xC4
+#define SET_EC_ELGAMEL_YY 0xC5
+
+#define GET_EC_ELGAMEL_p 0xD0
+#define GET_EC_ELGAMEL_n 0xD1
+#define GET_EC_ELGAMEL_Gx 0xD2
+#define GET_EC_ELGAMEL_Gy 0xD3
+#define GET_EC_ELGAMEL_a 0xD4
+#define GET_EC_ELGAMEL_b 0xD5
+#define GET_EC_ELGAMEL_x 0xD6
+#define GET_EC_ELGAMEL_k 0xD7
+#define GET_EC_ELGAMEL_PmSrcX 0xD8
+#define GET_EC_ELGAMEL_PmSrcY 0xD9
+#define GET_EC_ELGAMEL_PmX 0xDA
+#define GET_EC_ELGAMEL_PmY 0xDB
+#define GET_EC_ELGAMEL_CX   0xDC
+#define GET_EC_ELGAMEL_CY   0xDD
+#define GET_EC_ELGAMEL_C2X 0xDE
+#define GET_EC_ELGAMEL_C2Y 0xDF
+#define GET_EC_ELGAMEL_DX 0xE0
+#define GET_EC_ELGAMEL_DY 0xE1
+#define GET_EC_ELGAMEL_CprimeX 0xE2
+#define GET_EC_ELGAMEL_CprimeY 0xE3
+#define GET_EC_ELGAMEL_YX 0xEE
+#define GET_EC_ELGAMEL_YY 0xE4
+#define GET_EC_ELGAMEL_XPrime 0xEF
+
+#define CALC_EC_ELGAMEL_Sm 0xE5
+#define CALC_EC_ELGAMEL_C 0xE7
+#define CALC_EC_ELGAMEL_C2 0xE8
+#define CALC_EC_ELGAMEL_D 0xE9
+#define CALC_EC_ELGAMEL_Y 0xEA
+#define CALC_EC_ELGAMEL_Xprime 0xEB
+#define CALC_EC_ELGAMEL_Cprime 0xEC
+#define CALC_EC_ELGAMEL_ORG_PM 0xED
+#define CALC_EC_ELGAMEL_Pm 0xEF
+#define CALC_EC_ELGAMEL_PmSrc 0xFF
+
+#define SPI_1 1
+#define SPI_2 2
+
+#define SPI_WRITE 0
+#define SPI_READ 1
+
+typedef struct {
+	
+uint8_t * buffer;
+}ST_Buffer;
+
+typedef enum {
+	KEY_READ,
+	KEY_WRITE
+}KEY_MGR;
+typedef enum {
+RSA_PRIVATE1_WONLY =0,
+RSA_PRIVATE2,
+RSA_PRIVATE3_WONLY,
+RSA_PRIVATE4,
+RSA_PUBLIC1,
+RSA_PUBLIC2,
+RSA_PUBLIC3,
+RSA_PUBLIC4,
+RSA_MODULUS_N_1,
+RSA_MODULUS_N_3,
+RSA_MODULUS_N_2,
+RSA_MODULUS_N_4,
+ECDH_PRIVATE1_WONLY,
+ECDH_PRIVATE2,
+ECDH_PRIVATE3_WONLY,
+ECDH_PRIVATE4,
+ECDH_PUBLIC1,
+ECDH_PUBLIC2,
+ECDH_PUBLIC3,
+ECDH_PUBLIC4,
+ECDSA_PRIVATE1_WONLY,
+ECDSA_PRIVATE2,
+ECDSA_PRIVATE3_WONLY,
+ECDSA_PRIVATE4,
+ECDSA_PUBLIC1,
+ECDSA_PUBLIC2,
+ECDSA_PUBLIC3,
+ECDSA_PUBLIC4,
+MAX_OF_KEY
+} KEY_TYPE;
+
+#define RSA_PRIVATE1_WONLY_KEY 0x8000
+#define RSA_PRIVATE2_KEY 0x8200
+#define RSA_PRIVATE3_WONLY_KEY 0x8100
+#define RSA_PRIVATE4_KEY 0x8300
+#define RSA_PUBLIC1_KEY 0x8400
+#define RSA_PUBLIC2_KEY 0x8500
+#define RSA_PUBLIC3_KEY 0x8600
+#define RSA_PUBLIC4_KEY 0x8700
+#define RSA_MODULUS_N_1_KEY 0x8800
+#define RSA_MODULUS_N_3_KEY 0x8900
+#define RSA_MODULUS_N_2_KEY 0x8A00
+#define RSA_MODULUS_N_4_KEY 0x8B00
+#define ECDH_PRIVATE1_WONLY_KEY
+#define ECDH_PRIVATE2_KEY
+#define ECDH_PRIVATE3_WONLY_KEY
+#define ECDH_PRIVATE4_KEY
+
+#define ECDH_PUBLIC1_P256_KEY_X 0x8D00
+#define ECDH_PUBLIC2_P256_KEY_X 0x8D80
+#define ECDH_PUBLIC3_P256_KEY_X 0x8D40
+#define ECDH_PUBLIC4_P256_KEY_X 0x8DC0
+                     
+#define ECDH_PUBLIC1_P256_KEY_Y 0x9E40
+#define ECDH_PUBLIC2_P256_KEY_Y 0x9EC0
+#define ECDH_PUBLIC3_P256_KEY_Y 0x9E80
+#define ECDH_PUBLIC4_P256_KEY_Y 0x9F00
+
+#define ECDH_PUBLIC1_P521_KEY_X_0 0x9000  
+#define ECDH_PUBLIC1_P521_KEY_X_1 0x9040  
+#define ECDH_PUBLIC2_P521_KEY_X_0 0x9100  
+#define ECDH_PUBLIC2_P521_KEY_X_1 0x9140  
+#define ECDH_PUBLIC3_P521_KEY_X_0 0x9080  
+#define ECDH_PUBLIC3_P521_KEY_X_1 0x90C0  
+#define ECDH_PUBLIC4_P521_KEY_X_0 0x9180  
+#define ECDH_PUBLIC4_P521_KEY_X_1 0x91C0  
+                     
+#define ECDH_PUBLIC1_P521_KEY_Y_0 0x9F40
+#define ECDH_PUBLIC1_P521_KEY_Y_1 0x9F80
+#define ECDH_PUBLIC2_P521_KEY_Y_0 0xA040 
+#define ECDH_PUBLIC2_P521_KEY_Y_1 0xA080 
+#define ECDH_PUBLIC3_P521_KEY_Y_0 0x9FC0 
+#define ECDH_PUBLIC3_P521_KEY_Y_1 0xA000 
+#define ECDH_PUBLIC4_P521_KEY_Y_0 0xA0C0 
+#define ECDH_PUBLIC4_P521_KEY_Y_1 0xA100 
+
+
+#define ECDSA_PUBLIC1_P256_KEY_X 0x9400
+#define ECDSA_PUBLIC2_P256_KEY_X 0x9480
+#define ECDSA_PUBLIC3_P256_KEY_X 0x9440
+#define ECDSA_PUBLIC4_P256_KEY_X 0x94C0
+                     
+#define ECDSA_PUBLIC1_P256_KEY_Y  0x9500
+#define ECDSA_PUBLIC2_P256_KEY_Y  0x9580
+#define ECDSA_PUBLIC3_P256_KEY_Y  0x9540
+#define ECDSA_PUBLIC4_P256_KEY_Y  0x95C0
+
+#define ECDSA_PUBLIC1_P521_KEY_X_0  0x9A00
+#define ECDSA_PUBLIC1_P521_KEY_X_1  0x9A40
+#define ECDSA_PUBLIC2_P521_KEY_X_0  0x9B00
+#define ECDSA_PUBLIC2_P521_KEY_X_1  0x9B40
+#define ECDSA_PUBLIC3_P521_KEY_X_0  0x9A80
+#define ECDSA_PUBLIC3_P521_KEY_X_1  0x9AC0                                
+#define ECDSA_PUBLIC4_P521_KEY_X_0  0x9B80
+#define ECDSA_PUBLIC4_P521_KEY_X_1  0x9BC0 
+
+#define ECDSA_PUBLIC1_P521_KEY_Y_0  0x9C00
+#define ECDSA_PUBLIC1_P521_KEY_Y_1  0x9C40
+#define ECDSA_PUBLIC2_P521_KEY_Y_0  0x9D00
+#define ECDSA_PUBLIC2_P521_KEY_Y_1  0x9D40
+#define ECDSA_PUBLIC3_P521_KEY_Y_0  0x9C80
+#define ECDSA_PUBLIC3_P521_KEY_Y_1  0x9CC0
+#define ECDSA_PUBLIC4_P521_KEY_Y_0  0x9D80
+#define ECDSA_PUBLIC4_P521_KEY_Y_1  0x9DC0 
+
+
+#define ECDSA_PRIVATE1_WONLY_KEY
+#define ECDSA_PRIVATE2_KEY
+#define ECDSA_PRIVATE3_WONLY_KEY
+#define ECDSA_PRIVATE4_KEY
+#define ECDSA_PUBLIC1_KEY
+#define ECDSA_PUBLIC2_KEY
+#define ECDSA_PUBLIC3_KEY
+#define ECDSA_PUBLIC4_KEY
+#define KEY_MGR_FLAG 0xA140
+
+typedef enum {
+	MODE_RSA_PRIVATE1 = 0,
+	MODE_RSA_PRIVATE2,
+	MODE_RSA_PRIVATE3,
+	MODE_RSA_PRIVATE4,
+	MODE_RSA_PUBLIC1,
+	MODE_RSA_PUBLIC2,
+	MODE_RSA_PUBLIC3,
+	MODE_RSA_PUBLIC4,
+	MODE_RSA_MODULUS_N_1,
+	MODE_RSA_MODULUS_N_3,
+	MODE_RSA_MODULUS_N_2,
+	MODE_RSA_MODULUS_N_4,
+	MODE_ECDH_PRIVATE1_256,
+	MODE_ECDH_PRIVATE2_256,
+	MODE_ECDH_PRIVATE3_256,
+	MODE_ECDH_PRIVATE4_256,
+	MODE_ECDH_PUBLIC1_256,
+	MODE_ECDH_PUBLIC2_256,
+	MODE_ECDH_PUBLIC3_256,
+	MODE_ECDH_PUBLIC4_256,
+	MODE_ECDH_PRIVATE1_521,
+	MODE_ECDH_PRIVATE2_521,
+	MODE_ECDH_PRIVATE3_521,
+	MODE_ECDH_PRIVATE4_521,
+	MODE_ECDH_PUBLIC1_521,
+	MODE_ECDH_PUBLIC2_521,
+	MODE_ECDH_PUBLIC3_521,
+	MODE_ECDH_PUBLIC4_521,
+	MODE_ECDSA_PRIVATE1_K_256,
+	MODE_ECDSA_PRIVATE2_K_256,
+	MODE_ECDSA_PRIVATE3_K_256,
+	MODE_ECDSA_PRIVATE4_K_256,	 
+	MODE_ECDSA_PRIVATE1_D_256,
+	MODE_ECDSA_PRIVATE2_D_256,
+	MODE_ECDSA_PRIVATE3_D_256,
+	MODE_ECDSA_PRIVATE4_D_256,
+	MODE_ECDSA_PUBLIC1_256,
+	MODE_ECDSA_PUBLIC2_256,
+	MODE_ECDSA_PUBLIC3_256,
+	MODE_ECDSA_PUBLIC4_256,
+	MODE_ECDSA_PRIVATE1_K_521,
+	MODE_ECDSA_PRIVATE2_K_521,
+	MODE_ECDSA_PRIVATE3_K_521,
+	MODE_ECDSA_PRIVATE4_K_521,
+	MODE_ECDSA_PRIVATE1_D_521,
+	MODE_ECDSA_PRIVATE2_D_521,
+	MODE_ECDSA_PRIVATE3_D_521,
+	MODE_ECDSA_PRIVATE4_D_521,
+	MODE_ECDSA_PUBLIC1_521,
+	MODE_ECDSA_PUBLIC2_521,
+	MODE_ECDSA_PUBLIC3_521,
+	MODE_ECDSA_PUBLIC4_521
+} PKE_MODE;
+
+
+#define ECDSA_P521_K 6
+#define ECDSA_P521_D 5
+#define ECDSA_P256_K 4
+#define ECDSA_P256_D 3
+#define ECDH_P521 2
+#define ECDH_P256 1
+#define RSA 0
+
+#define PRIVATE_KEY4 3
+#define PRIVATE_KEY3 2
+#define PRIVATE_KEY2 1
+#define PRIVATE_KEY1 0
+
+//#define ECC_DEBUG 0
+
+#if 0
+#define DEBUG_PRINT 
+#define ECC_DEBUG 1
+#define DEBUG_SPI
+
+#define WHEREAMI() printf("\r\n %s %d",__FILE__,__LINE__)
+#define WHERE() printf("\r\n%s %d",__FILE__,__LINE__);
+#else
+#define WHEREAMI() 
+#define WHERE() 
+
+#endif
+
+#endif
+//#define ECDH_GET_RESULT
+#if 0
+#define OPT_TEST_
+#define SPI_TEST
+//#define RSA_TEST_
+#define UART_TEST
+//#define ECDH_TEST
+#define SLEEP_TEST_
+#define ECDSA_TEST_CODE
+#define RAND_H_TEST
+/#define SPI_TEST
+#endif

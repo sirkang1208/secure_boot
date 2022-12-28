@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M3 --li -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\src -I ..\src\SHA256 -I ..\src\ECC -I ..\src\AES -I ..\src\TRNG -I ..\src\mbedTLS -I ..\src\mbedTLS\include -I ..\src\mbedTLS\library -I ..\src\sdcp -I ..\src\FingerPrint --wchar32
+-I"C:\Users\kibong\Desktop\neowine\Neowine 개발자료\Firmware\CM3_dalpu6_20220527\CM3_dalpu6\MDK-ARM\RTE"
+-IC:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+-IC:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\Device\ARM\ARMCM3\Include
+-D__UVISION_VERSION="521" -D_RTE_ -DARMCM3
+-o .\objects\asn1parse.o --omf_browse .\objects\asn1parse.crf --depend .\objects\asn1parse.d --feedback ".\Objects\Dalpu6_FP.fed" "..\src\mbedTLS\library\asn1parse.c"

@@ -1,0 +1,12 @@
+.\objects\cm3_dma.o: ..\src\DMA\CM3_dma.c
+.\objects\cm3_dma.o: ..\src\DMA\CM3_dma.h
+.\objects\cm3_dma.o: ..\Inc\CMSDK_CM3.h
+.\objects\cm3_dma.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h
+.\objects\cm3_dma.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\cm3_dma.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\cm3_dma.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\cm3_dma.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\cm3_dma.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\cm3_dma.o: ..\Inc\system_CMSDK_CM3.h
+.\objects\cm3_dma.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\cm3_dma.o: ..\Inc\uart_stdout.h

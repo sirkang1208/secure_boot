@@ -1,0 +1,14 @@
+.\objects\gcm.o: ..\src\mbedTLS\library\gcm.c
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\gcm.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\gcm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/gcm.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/cipher.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\gcm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/platform_util.h
+.\objects\gcm.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\gcm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gcm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

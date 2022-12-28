@@ -1,0 +1,12 @@
+.\objects\poly1305.o: ..\src\mbedTLS\library\poly1305.c
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\poly1305.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\poly1305.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/poly1305.h
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\poly1305.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\poly1305.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/platform_util.h
+.\objects\poly1305.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\poly1305.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

@@ -1,0 +1,15 @@
+.\objects\platform.o: ..\src\mbedTLS\library\platform.c
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\platform.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/platform.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/platform_time.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
+.\objects\platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/platform_util.h
+.\objects\platform.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\platform.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

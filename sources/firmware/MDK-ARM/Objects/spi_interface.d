@@ -1,0 +1,13 @@
+.\objects\spi_interface.o: ..\Driver\spi_interface.c
+.\objects\spi_interface.o: ..\Inc\spi_interface.h
+.\objects\spi_interface.o: ..\Inc\CMSDK_CM3.h
+.\objects\spi_interface.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h
+.\objects\spi_interface.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\spi_interface.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\spi_interface.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\spi_interface.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\spi_interface.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\spi_interface.o: ..\Inc\system_CMSDK_CM3.h
+.\objects\spi_interface.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\spi_interface.o: ..\Inc\config.h
+.\objects\spi_interface.o: ..\Inc\d6_config.h

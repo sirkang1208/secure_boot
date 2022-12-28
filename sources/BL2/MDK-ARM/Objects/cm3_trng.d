@@ -1,0 +1,11 @@
+.\objects\cm3_trng.o: ..\src\TRNG\CM3_TRNG.c
+.\objects\cm3_trng.o: ..\Inc\config.h
+.\objects\cm3_trng.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\cm3_trng.o: ..\Inc\CMSDK_CM3.h
+.\objects\cm3_trng.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h
+.\objects\cm3_trng.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\cm3_trng.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\cm3_trng.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\cm3_trng.o: C:\Users\kibong\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\cm3_trng.o: ..\Inc\system_CMSDK_CM3.h
+.\objects\cm3_trng.o: ..\src\TRNG\usr_rng.h

@@ -1,0 +1,14 @@
+.\objects\ecp_curves.o: ..\src\mbedTLS\library\ecp_curves.c
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\mbedtls_config.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/check_config.h
+.\objects\ecp_curves.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/ecp.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/bignum.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\ecp_curves.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\ecp_curves.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/platform_util.h
+.\objects\ecp_curves.o: ..\src\mbedTLS\include\mbedtls/config.h
+.\objects\ecp_curves.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
