@@ -5,12 +5,12 @@
 - Secure boot for bare metal embedded device
 - Bootloader and Firmware Image generator tool
 
-### development environment
+### Development environment
 - Hardware
     - digilent genesys 2 FPGA board with ARM cortex M3 and PKCC
 - Software
     - ARM Keil MDK (uVision 5 IDE)
-- for image gen tool
+- Image gen tool
     - Visual Studio (C language)
     - Python
 
