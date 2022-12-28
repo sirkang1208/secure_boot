@@ -1,5 +1,7 @@
 # Secure Boot
 
+※ This program is made for Windows.
+
 ## About this project
 ### Description
 - Secure boot for bare metal embedded device
