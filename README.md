@@ -20,9 +20,11 @@
 ![secure-boot](https://user-images.githubusercontent.com/101001675/209815189-b33aa42e-d056-462a-95ec-b2b465a32931.png)
 
 * chip vendor : Companies that made chips and boards
+    - Build the first bootloader and write it to an unmodifiable ROM
 
 
 * Application vendor : Companies that use boards to make software
+    - Build a second bootloader and firmware
 ### Image generation process
 - 2nd bootloader image generation
 ![image](https://user-images.githubusercontent.com/101001675/209815703-01fa3073-05b9-499f-a5e7-12e277f8d1c7.png)
